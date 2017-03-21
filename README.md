@@ -17,11 +17,14 @@ Once you have defined the `mtg` index pattern, click the `Discover` tab near the
 
 If you've already run `./start.sh` before and decide you wish to run the `mtg.py` script and reindex the data for some reason (perhaps to use some different mappings, or change the analyzers in some way) you can run the `python mtg.py` instead of running `./start.sh`. The start script builds the docker image and launches a container for ES, which you shouldn't need to do more than once. If you aren't sure if your Docker container is still running, execute `docker ps` in your terminal and see if there is a docker container called `es4mc` that is running.
 
-## A few helpful commands
+## A few helpful endpoints
 Once you have launched the Docker container and indexed the data, you can verify that Elasticsearch is running by visiting [localhost:19200](http://localhost:19200).
 
 You can see the index settings and mappings for the MTG data by going to [localhost:19200/mtg](http://localhost:19200/mtg)
 
+You can see which indices are available to you by visiting [localhost:19200/_cat/indices?v](http://localhost:19200/_cat/indices?v)
+
+## Cause I still haven't found what I'm looking for
 You can search the MTG data by going to [localhost:19200/mtg/_search](http://localhost:19200/mtg/_search). You can also execute more complex searches against that endpoint by using `curl` e.g.
 
 
@@ -93,7 +96,7 @@ curl http://localhost:19200/mtg/_search -d '
   }
 }'
 ```
-
+## By the same token
 Much of the class will be dedicated to the Analysis API, a sample invocation of which is: [http://localhost:19200/mtg/_analyze?text=good&analyzer=synonym](http://localhost:19200/mtg/_analyze?text=good&analyzer=synonym)
 
 The `name` and `text` fields are analyzed five different ways out of the box, including:
@@ -106,6 +109,7 @@ The `name` and `text` fields are analyzed five different ways out of the box, in
 
 analyzers. There is also an additional analyzer hidden in the index as an easter egg. See if you can find it.
 
+## Tell me more, tell me more
 Last, we will make use of the [More Like This](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl-mlt-query.html) query in this class. A sample invocation is
 
 
