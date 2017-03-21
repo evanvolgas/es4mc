@@ -1,0 +1,2 @@
+cluster.name: "es4mc"
+path.data: /home/elasticsearch/elasticsearch/data
