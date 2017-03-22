@@ -13,16 +13,11 @@ sys.path.append('../')
 from docopt import docopt
 from elasticsearch import helpers
 
-QUERY_BODY = {"query": {"match_all": {}}}
-
 INDEX_NAME = 'mtg'
 
 
 def run(args):
     es = es_client()
-
-    # ensure the index template is in place
-    results = es.search(index=INDEX_NAME, doc_type='cards', body=QUERY_BODY)
 
     card_iter = helpers.scan(es, index=INDEX_NAME)
 

@@ -11,22 +11,8 @@ from es import es_client
 
 from docopt import docopt
 
-QUERY_BODY = {
-    'query': {
-        'bool': {
-            'must': [
-                {'match': {'colors': 'Green'}},
-                {'match': {'subtypes': 'Elf'}},
-                {'range': {
-                    'cmc': {
-                        'gte': 2
-                    }
-                }
-                }
-            ]
-        }
-    }
-}
+# write the query body
+QUERY_BODY = {}
 
 INDEX_NAME = 'mtg'
 
