@@ -80,6 +80,7 @@ def get_generic_cost(card_data, mana_costs):
     """Compute the generic cost as the difference of the difference of
      cmc and the sum of the color costs"""
     color_cost_sum = sum([cost for cost in mana_costs.values()])
+
     return {'generic_cost': int(card_data['_source']['cmc']) - color_cost_sum}
 
 
@@ -89,7 +90,6 @@ def enrich_card(card_data):
     enriched_card['_index'] = INDEX_NAME
 
     mana_costs = get_color_mana_costs(card_data['_source']['manaCost'])
-
     mana_costs.update(get_generic_cost(card_data, mana_costs))
 
     enriched_card['_source'].update(mana_costs)

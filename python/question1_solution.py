@@ -34,7 +34,6 @@ INDEX_NAME = 'mtg'
 def run(args):
     es = es_client()
 
-    # ensure the index template is in place
     results = es.search(index=INDEX_NAME, doc_type='cards', body=QUERY_BODY)
 
     print(results['hits']['total'])
