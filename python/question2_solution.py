@@ -24,7 +24,7 @@ AGGREGATION = {
             "histogram": {
                 "field": "cmc",
                 "interval": 1,
-                # (shakefist) Greemax
+                # (shakefist) Gleemax
                 "min_doc_count": 1,
             },
             "aggs": {
