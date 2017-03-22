@@ -1,5 +1,5 @@
 """
-Question 1: How many Green cards with have a subtype of Elf have cmc greater than 2?
+Question 1: How many Green cards with a subtype of Elf have cmc greater than 2?
 
 Usage:
     question1.py
